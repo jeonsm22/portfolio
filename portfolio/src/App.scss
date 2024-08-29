@@ -1,0 +1,49 @@
+.content{
+    width : 1000px;
+    height : 400px;
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background : skyblue;
+}
+
+svg{
+    text{
+        font-family: 'Anton', sans-serif;
+        font-size: 6rem;
+        font-weight: bold;
+        stroke-width : 2px;
+        stroke: #fff;
+        fill : transparent;
+        stroke-dashoffset: 750;
+        stroke-dasharray: 750;
+    
+        animation: stroke 1.5s linear;
+        animation-fill-mode: forwards;
+
+    }
+}
+
+@keyframes stroke{
+    0% {
+        stroke-dashoffset: 750;
+    }
+    70% {
+        fill : #fff;
+    }
+    100%{
+        stroke-dashoffset: 0;
+        fill : #fff;
+    }
+}
+
+$total : 7;
+@for $i from 1 through $total{
+    text:nth-child(#{$i}){
+        animation-delay: ($i - 1) * 0.3 + s;
+    }
+}
